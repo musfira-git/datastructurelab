@@ -1,0 +1,99 @@
+#include<stdio.h>
+#include<stdlib.h>
+ struct node
+ {
+  int data;
+  struct node *next;
+  };
+  struct node *newnode, *head = 0;
+  void push()
+  {
+     newnode = (struct node*)malloc(sizeof(struct node));
+     printf("enter the data: ");
+     scanf("%d" , &newnode->data);
+     newnode->next =head;
+     head = newnode;
+     printf("\n%d is pushed into the stack", head->data);
+    }
+  void pop()
+  {
+     struct node *temp;
+     if (head == NULL)
+     {
+       printf("\nstack is empty");
+       return;
+       }
+      else
+      {
+        temp = head;
+        printf("the deleted data is %d",temp->data);
+        head=head->next;
+        free(temp);
+        }
+       }
+  void peek()
+  {
+    if(head == NULL)
+    {
+      printf("\nstack is empty");
+      return;
+      }
+     else
+       printf("last element is %d",head->data);
+       }
+     void display()
+     {
+       struct node *temp;
+       if (head == NULL)
+       {
+          printf("stack is empty");
+          return;
+          }
+       else
+       {
+        temp = head;
+        printf("stack elements are:\n");
+        while(temp != NULL)
+        {
+           printf("%d" , temp->data);
+           temp=temp->next;
+           }
+           printf("\n");
+           }
+          }
+        int main()
+        {
+          int opt;
+             do
+              {
+              printf("\n1)PUSH \n");
+              printf("2)POP \n");
+              printf("3)PEEK \n");
+              printf("4)DISPLAY \n");
+              printf("5)QUIT ");
+              printf("\nchoose your option : \n");
+              printf("%d", &opt);
+              switch(opt)
+              {
+                 case 1:push();
+                        break;
+                 case 2:pop();
+                        break;
+                 case 3:peek();
+                        break;
+                 case 4:display();
+                        break;
+                 case 5:exit(0);
+                 default:printf("invalid option\n");
+                 }
+                 }while (1);
+                 }
+              
+           
+       
+       
+       
+       
+       
+   
+
